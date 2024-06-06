@@ -80,7 +80,7 @@ def make_word_list(Docs:list[str]) -> tuple[set, list]:
     
     sentence_words:list = [dict()]*len(Docs) #最初に指定した方がメモリに優しそう
     for i in range(len(Docs)):
-        sentence_words[i] = count_unique_words(Docs[i])
+        sentence_words[i] = count_unique_words(Docs[i]) #レベル1の関数で単語に分ける
 
     return word_list, sentence_words
 
@@ -96,5 +96,19 @@ print(sentence_words)
 '''
 単語文書行列について知らなかったため調べた
 
+chatgptに聞いてみた（ドキュメントに添付してある）
+単語文書行列を使うと、文書同士がどれだけ似ているか調べることができるらしい
 
+調べるとTF-IDFという方法を使って解析するらしい
+
+TF値は、文書内における「ある単語の出現頻度」を指します。
+要は、文書内にある全ての単語の出現回数に対し、
+その単語の出現回数がどれほどを占めるかという割合を表すものと理解すればよいでしょう。
+その単語の出現回数が多ければTF値は大きくなり、逆に出現回数が低ければ、TF値が下がるしくみです。
+
+IDF値は、「文書集合体の中にある単語が含まれる文書の割合の逆数」を表します。
+その単語が他の文書中でも多く出現していればIDF値は小さく、他の文書にあまり出現していないほどIDF値は大きいということです。
+(https://sirprize.co.jp/meo/word/tf-idf/#:~:text=TF%2DIDF%E5%80%A4%E3%81%AE%E6%AC%A0%E7%82%B9,-%E6%96%87%E6%9B%B8%E5%86%85%E3%81%AB&text=%E3%81%9D%E3%81%AE%E7%90%86%E7%94%B1%E3%81%AF%E3%80%81%E3%80%8CTF%E5%80%A4,%E5%BD%B1%E9%9F%BF%E3%81%97%E3%81%A6%E3%81%97%E3%81%BE%E3%81%84%E3%81%BE%E3%81%99%E3%80%82)
+
+つまり単語に分けて、頻度を調べて比較とかする
 '''
