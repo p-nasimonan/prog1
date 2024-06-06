@@ -28,6 +28,7 @@ print(type(result1))
 print(result1) #setにして実行したから順序はない
 #{'have': 1, 'pen': 1, 'a': 1, 'i': 1}
 
+del doc1, result1
 # レベル2「単語一覧を作成せよ」
 '''
 文書集合はリスト型で実行例のように用意するとする。
@@ -92,6 +93,7 @@ print(word_list)
 print(type(sentence_words))
 print(sentence_words)
 
+del docs, word_list, sentence_words
 #オプション
 '''
 単語文書行列について知らなかったため調べた
@@ -111,4 +113,6 @@ IDF値は、「文書集合体の中にある単語が含まれる文書の割�
 (https://sirprize.co.jp/meo/word/tf-idf/#:~:text=TF%2DIDF%E5%80%A4%E3%81%AE%E6%AC%A0%E7%82%B9,-%E6%96%87%E6%9B%B8%E5%86%85%E3%81%AB&text=%E3%81%9D%E3%81%AE%E7%90%86%E7%94%B1%E3%81%AF%E3%80%81%E3%80%8CTF%E5%80%A4,%E5%BD%B1%E9%9F%BF%E3%81%97%E3%81%A6%E3%81%97%E3%81%BE%E3%81%84%E3%81%BE%E3%81%99%E3%80%82)
 
 つまり単語に分けて、頻度を調べて比較とかする
+
+これを実装するには、出現回数を調べて二つの文章を比較する
 '''
