@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module script</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">script</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/Users/e245719/Documents/GitHub/prog1/4/script.py">/Users/e245719/Documents/GitHub/prog1/4/script.py</a></td></tr></table>
+    <p><span class="code">=====================================================================<br>
+レベル1「ユニークな単語一覧を作成し、出現回数を数えよ」<br>
+&nbsp;<br>
+文書はstr型で実行例のように用意するとする。文書を引数として受け取り、<br>
+単語ごとの出現回数を数えあげる関数を実装せよ。関数名を&nbsp;count_unique_words&nbsp;とする。<br>
+&nbsp;<br>
+実行例<br>
+&nbsp;&nbsp;&nbsp;&nbsp;doc1&nbsp;=&nbsp;"I&nbsp;have&nbsp;a&nbsp;pen"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;result1&nbsp;=&nbsp;<a href="#-count_unique_words">count_unique_words</a>(doc1)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(type(result1))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;'dict'&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(result1)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{'i':&nbsp;1,&nbsp;'have':&nbsp;1,&nbsp;'a':&nbsp;1,&nbsp;'pen':&nbsp;1}<br>
+=====================================================================<br>
+レベル2「単語一覧を作成せよ」<br>
+&nbsp;<br>
+文書集合はリスト型で実行例のように用意するとする。<br>
+文書集合を引数として受け取り、単語一覧を作成する関数を実装せよ。<br>
+関数名を&nbsp;make_word_list&nbsp;とする。<br>
+なお、make_word_list内部ではレベル1で作成した関数count_unique_wordsを利用すること。<br>
+&nbsp;<br>
+実行例<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;2文書を用意<br>
+&nbsp;&nbsp;&nbsp;&nbsp;docs&nbsp;=&nbsp;['I&nbsp;have&nbsp;a&nbsp;pen',&nbsp;'I&nbsp;have&nbsp;an&nbsp;apple']<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;単語一覧を作成、ついでにレベル1の結果も返す<br>
+&nbsp;&nbsp;&nbsp;&nbsp;word_list,&nbsp;sentence_words&nbsp;=&nbsp;<a href="#-make_word_list">make_word_list</a>(docs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(type(word_list))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;'set'&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(word_list)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{'a',&nbsp;'apple',&nbsp;'i',&nbsp;'have',&nbsp;'pen',&nbsp;'an'}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(type(sentence_words))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;class&nbsp;'list'&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(sentence_words)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[{'i':&nbsp;1,&nbsp;'have':&nbsp;1,&nbsp;'a':&nbsp;1,&nbsp;'pen':&nbsp;1},&nbsp;{'i':&nbsp;1,&nbsp;'have':&nbsp;1,&nbsp;'an':&nbsp;1,&nbsp;'apple':&nbsp;1}]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;=====================================================================</span></p>
+<p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-count_unique_words"><strong>count_unique_words</strong></a>(Doc: str) -&gt; dict[str, int]</dt><dd><span class="code">入力:文字列<br>
+出力:dict[単語,&nbsp;出現回数]</span></dd></dl>
+ <dl><dt><a name="-make_word_list"><strong>make_word_list</strong></a>(Docs: list[str]) -&gt; tuple[set[str], list[dict[str, int]]]</dt><dd><span class="code">入力&nbsp;list[文字列,文字列...]<br>
+出力&nbsp;(set[複数の文字列の全体の単語一覧],&nbsp;dict[リストの要素それぞれの単語(key),&nbsp;単語数(value)])<br>
+&nbsp;<br>
+&nbsp;<br>
+1,word_list(リスト全体の単語の集合)を出力する。<br>
+&nbsp;<br>
+リストdocsの要素を結合してstrに変換&nbsp;&nbsp;←joinメソッドで要素を結合<br>
+&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+文字列を単語に分ける&nbsp;splitメソッドで空白を元に文章を単語に分割<br>
+&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+setに変換<br>
+&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+word_list<br>
+&nbsp;<br>
+2,sentence_words(リストの要素それぞれの単語(key)と単語数(value))を出力する<br>
+リストdocsを文字列に分けて処理する<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+&nbsp;&nbsp;&nbsp;&nbsp;文字列をレベル1で作ったcount_unique_wordsに入れる<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+sentence_words</span></dd></dl>
+</td></tr></table>
+</body></html>
