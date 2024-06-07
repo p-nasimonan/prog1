@@ -12,15 +12,13 @@
     {'i': 1, 'have': 1, 'a': 1, 'pen': 1}
 '''
 
-def count_unique_words(Doc:str) -> dict:
+def count_unique_words(Doc:str) -> dict[str, int]:
     #文字列を単語ごとに分けてリストに変換
     doc:str = Doc.lower() #lowerメソッドで小文字に変換
     docs:list = doc.split() #指定がなければ空白で単語を分けてリストに変換する
     
     #リストの要素から単語の出現回数を調べる
-    words:dict ={}
-    for key in set(docs): #listを集合に変えてforの回数を減らす
-        words[key] = docs.count(key) #countメソッドでkeyの文字列が何回あるかを辞書に追加
+    words = {k:docs.count(k) for k in set(docs)}
     return words
 doc1 = "I have a pen"
 result1 = count_unique_words(doc1)
@@ -75,7 +73,7 @@ sentence_words
 
 '''
 
-def make_word_list(Docs:list[str]) -> tuple[set, list]:
+def make_word_list(Docs:list[str]) -> tuple[set[str], list[dict[str, int]]]:
     words:str = (" ".join(Docs))  #joinで要素を結合
     word_list = set(words.split()) #splitで単語を分けてリストにする。それを集合に変換
     
