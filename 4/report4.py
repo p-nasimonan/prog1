@@ -68,7 +68,7 @@ def make_word_list(Docs:list[str]) -> tuple[set[str], list[dict[str, int]]]:
 
     1,word_list(リスト全体の単語の集合)を出力する。
 
-    リストdocsの要素を結合してstrに変換  ←joinメソッドで要素を結合
+    リストDocsの要素を結合してstrに変換  ←joinメソッドで要素を結合
         ↓
     文字列を単語に分ける splitメソッドで空白を元に文章を単語に分割
         ↓
@@ -77,7 +77,7 @@ def make_word_list(Docs:list[str]) -> tuple[set[str], list[dict[str, int]]]:
     word_list
 
     2,sentence_words(リストの要素それぞれの単語(key)と単語数(value))を出力する
-    リストdocsを文字列に分けて処理する
+    リストDocsを文字列に分けて処理する
             ↓
         文字列をレベル1で作ったcount_unique_wordsに入れる
             ↓
