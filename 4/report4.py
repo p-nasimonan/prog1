@@ -84,6 +84,7 @@ def make_word_list(Docs:list[str]) -> tuple[set[str], list[dict[str, int]]]:
     sentence_words
     '''
     words:str = (" ".join(Docs))  #joinで要素を結合
+    words = words.lower() #lowerメソッドで小文字に変換
     word_list = set(words.split()) #splitで単語を分けてリストにする。それを集合に変換
     
     sentence_words:list = list(map(count_unique_words, Docs))  #map関数を使ってレベル1の関数で単語に分ける

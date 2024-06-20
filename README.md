@@ -48,9 +48,27 @@ result = f(10)
 print(f"{result=:.5f}")
 ```
 
-## report3
+## report3 基本的な統計処理を実装してみよう。
 <a href = "https://ie.u-ryukyu.ac.jp/~tnal/2024/prog1/static/report/report3_iteration.html">リンク</a><br>
 リストはpythonのfor文と相性が良い!
 
-## report4
+## report4 基本的な自然言語処理を実装してみよう（その1）
+<a href = "https://ie.u-ryukyu.ac.jp/~tnal/2024/prog1/static/report/report4_list_dict_nlp.html">リンク</a><br>
 しっかり処理の手順の整理をしてプログラムを書こう！
+
+## report5 基本的な自然言語処理を実装してみよう（その2）
+<a href = "https://ie.u-ryukyu.ac.jp/~tnal/2024/prog1/static/report/report5_list_dict_nlp2.html">リンク</a><br>
+### 参考資料
+<a href = "https://ie.u-ryukyu.ac.jp/~tnal/2024/prog1/static/docstring_basic.html">ドキュメントについて</a><br>
+<a href = "https://ie.u-ryukyu.ac.jp/~tnal/2024/prog1/static/doctest.html">doctestについて</a><br>
+ドキュメントの出力
+```
+pydoc3 モジュール名
+# >モジュール名.htmlにドキュメントを出力
+```
+
+テスト結果（vオプションでエラー以外も全て）を表示
+```
+python -m doctest 〇〇.py -v
+```
+
