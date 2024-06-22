@@ -77,7 +77,7 @@ def make_word_doc_matrix(words:set, sentence_words:list[dict[str, int]]) -> tupl
     i:int = 0 #カウント変数
     j:int = 0 #カウント変数
     for sentence_word in sentence_words:
-        result_matrix[i] = [0]*len(words) #初期化しないといけない
+        result_matrix[i] = [0]*len(words) #初期化しないといけない多分メモリの問題
         for word in result_words:
             if word in list(sentence_word):
                 result_matrix[i][j] = sentence_word[word]
@@ -90,15 +90,24 @@ def make_word_doc_matrix(words:set, sentence_words:list[dict[str, int]]) -> tupl
 
 #オプション
 import numpy as np
-# 2つの点p, qの座標位置の配列を定義
-# p = np.array([1, 3])
-# q = np.array([4, 7])
-# # 2点間のユークリッド距離を計算する
-# dist = np.linalg.norm(p - q)
-# print(dist) 
-# 出力結果：5.0
 
+def distance(array1:list[int], array2:list[int]):
+
+    # 2つの点p, qの座標位置の配列を定義
+    p = np.array(array1)
+    q = np.array(array2)
+    # 2点間のユークリッド距離を計算する
+    dist = np.linalg.norm(p - q)
+    result = 1/(dist+1)
+    return result
+
+def similarity_text(docs:list):
+    word_list, sentence_words = make_word_list(docs)
+    words, matrix = make_word_doc_matrix(word_list, sentence_words)
+    return distance(matrix[0], matrix[1])
 #doctest
 if __name__ == '__main__':
-    import doctest
-    doctest.run_docstring_examples(make_word_doc_matrix, globals(), verbose=True)
+    #import doctest
+    #doctest.run_docstring_examples(make_word_doc_matrix, globals(), verbose=True)
+    print(similarity_text([input('文書1:'), input('文書2:')]))
+    
