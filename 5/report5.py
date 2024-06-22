@@ -36,7 +36,6 @@ def make_word_list(Docs:list[str]) -> tuple[set[str], list[dict[str, int]]]:
     >>> word_list, sentence_words = make_word_list(docs)
     >>> print(type(word_list))
     <class 'set'>
-    >>> print(words)
     >>> print(word_list)
     {'a', 'apple', 'i', 'have', 'pen', 'an'}
     >>> print(type(sentence_words))
@@ -46,12 +45,12 @@ def make_word_list(Docs:list[str]) -> tuple[set[str], list[dict[str, int]]]:
     '''
     words:str = (" ".join(Docs))  #joinで要素を結合
     words = words.lower() #lowerメソッドで小文字に変換
-    word_list = set(words.split()) #splitで単語を分けてリストにする。それを集合に変換
-    
+    word_list = words.split() #splitで単語を分けてリストにする。
+    word_set:set = set(sorted(word_list)) #それを集合にする。前回、集合にしたときに順番が変わっていたためソートで並べ替えてみた
     sentence_words:list = list(map(count_unique_words, Docs))  #map関数を使ってレベル1の関数で単語に分ける
     #map関数(関数, シーケンス)->それぞれの要素を関数で実行
 
-    return word_list, sentence_words
+    return word_set, sentence_words
 
 
 
@@ -60,9 +59,9 @@ def make_word_list(Docs:list[str]) -> tuple[set[str], list[dict[str, int]]]:
 
 #オプション
 # 2つの点p, qの座標位置の配列を定義
-p = np.array([1, 3])
-q = np.array([4, 7])
-# 2点間のユークリッド距離を計算する
-dist = np.linalg.norm(p - q)
-print(dist) 
+# p = np.array([1, 3])
+# q = np.array([4, 7])
+# # 2点間のユークリッド距離を計算する
+# dist = np.linalg.norm(p - q)
+# print(dist) 
 # 出力結果：5.0
