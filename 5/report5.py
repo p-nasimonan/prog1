@@ -92,7 +92,11 @@ def make_word_doc_matrix(words:set, sentence_words:list[dict[str, int]]) -> tupl
 import numpy as np
 
 def distance(array1:list[int], array2:list[int]):
-
+    '''
+    ## 二つのベクトルのユークリッド距離を求めて、類似度を算出
+    入力: ベクトル[x, y, z ...], ベクトル[x, y, z ...]
+    出力: 類似度
+    '''
     # 2つの点p, qの座標位置の配列を定義
     p = np.array(array1)
     q = np.array(array2)
@@ -102,12 +106,21 @@ def distance(array1:list[int], array2:list[int]):
     return result
 
 def similarity_text(docs:list):
+    '''
+    ## 二つの文書から単語文書行列を作成して類似度を算出
+    入力: [文字列, 文字列]
+    出力: 類似度
+    '''
     word_list, sentence_words = make_word_list(docs)
     words, matrix = make_word_doc_matrix(word_list, sentence_words)
-    return distance(matrix[0], matrix[1])
-#doctest
+    result = distance(matrix[0], matrix[1])
+    return result
+
+
 if __name__ == '__main__':
-    #import doctest
-    #doctest.run_docstring_examples(make_word_doc_matrix, globals(), verbose=True)
+    #doctest
+    import doctest
+    doctest.run_docstring_examples(make_word_doc_matrix, globals(), verbose=True)
+
     print(similarity_text([input('文書1:'), input('文書2:')]))
     
