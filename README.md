@@ -6,6 +6,14 @@
 <a href = "https://github.com/naltoma/python_intro2021">naltomaの解説ページのソースコード</a><br>
 ソースコードを載せてどこからでも開発できるようにするため
 
+## 一年生で見つけてしまった人へ
+ - GitHubを使ってるだけでも一年生ではすごいです。積極的に作品を作ってリポジトリを沢山作りましょう
+ - これは2024年の時の課題です。今とは違うかも
+ - これはほとんど答えです。自力でやりましょう。
+    - やりたいことをプログラムに翻訳する訓練です。翻訳後の英語をコピーしても意味がない
+    - AIやネットに聞くのもアリだけど、理解せずに写すのはダメ。これも同じ
+ ---
+
 ## report1　print()関数と変数の利用、用語整理。
 <a href = "https://ie.u-ryukyu.ac.jp/~tnal/2024/prog1/static/report/report1_print_variable_terms.html">リンク</a><br>
 ここは小学教育レベル
@@ -72,3 +80,6 @@ pydoc3 モジュール名
 python -m doctest 〇〇.py -v
 ```
 
+## report6 コード読解
+<a href = "https://ie.u-ryukyu.ac.jp/~tnal/2024/prog1/static/report/report6_reading_debug.html">リンク</a><br>
+<p>アドバイス:コメントばっかりだけど、とりあえず上のリンクに従えば終わるはず！</p>

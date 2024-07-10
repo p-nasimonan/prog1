@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module tic_tac_toe</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">tic_tac_toe</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/Users/e245719/Documents/GitHub/prog1/6/tic_tac_toe.py">/Users/e245719/Documents/GitHub/prog1/6/tic_tac_toe.py</a></td></tr></table>
+    <p><span class="code">Example&nbsp;code&nbsp;for&nbsp;Tic-tac-toe<br>
+&nbsp;<br>
+3x3&nbsp;board&nbsp;was&nbsp;described&nbsp;as&nbsp;a&nbsp;list&nbsp;with&nbsp;9&nbsp;sequential&nbsp;items.<br>
+Each&nbsp;item&nbsp;in&nbsp;the&nbsp;list&nbsp;shows&nbsp;as&nbsp;follows.<br>
+&nbsp;-&nbsp;'e':&nbsp;empty<br>
+&nbsp;-&nbsp;'o':&nbsp;circle<br>
+&nbsp;-&nbsp;'x':&nbsp;cross<br>
+&nbsp;<br>
+For&nbsp;example,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;board&nbsp;=&nbsp;['e',&nbsp;'e',&nbsp;'e',&nbsp;'e',&nbsp;'e',&nbsp;'e',&nbsp;'e',&nbsp;'e',&nbsp;'e']<br>
+shows&nbsp;that&nbsp;all&nbsp;cells&nbsp;have&nbsp;empty&nbsp;state.<br>
+&nbsp;<br>
+The&nbsp;index&nbsp;of&nbsp;board[]&nbsp;begins&nbsp;from&nbsp;upper-left&nbsp;to&nbsp;lower-right.<br>
+For&nbsp;example,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;board&nbsp;=&nbsp;['e',&nbsp;'o',&nbsp;'e',&nbsp;'e',&nbsp;'o',&nbsp;'x',&nbsp;'e',&nbsp;'e',&nbsp;'e']<br>
+describes&nbsp;the&nbsp;state&nbsp;of&nbsp;following.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'e'|'o'|'e'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;---+---+---<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'e'|'o'|'x'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;---+---+---<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'e'|'e'|'e'<br>
+&nbsp;<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;module&nbsp;has&nbsp;a&nbsp;<a href="#-test_play">test_play</a>(),&nbsp;which&nbsp;executes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;prepare&nbsp;an&nbsp;empty&nbsp;board,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;play&nbsp;one&nbsp;hand&nbsp;with&nbsp;`o'&nbsp;randomly,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;play&nbsp;one&nbsp;hand&nbsp;with&nbsp;`c'&nbsp;randomly.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;1:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%&nbsp;python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;import&nbsp;tic_tac_toe<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;tic_tac_toe.<a href="#-test_play">test_play</a>()<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;2:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%&nbsp;python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;from&nbsp;tic_tac_toe&nbsp;import&nbsp;*<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;<a href="#-test_play">test_play</a>()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;3:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%&nbsp;python&nbsp;tic_tac_toe.py</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="random.html">random</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-gather_empty_cells"><strong>gather_empty_cells</strong></a>(board)</dt><dd><span class="code">Gather&nbsp;empty&nbsp;cells&nbsp;on&nbsp;the&nbsp;board.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;board&nbsp;(list):&nbsp;the&nbsp;list&nbsp;with&nbsp;9&nbsp;items.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list:&nbsp;the&nbsp;index&nbsp;list&nbsp;of&nbsp;empty&nbsp;state&nbsp;on&nbsp;the&nbsp;board.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;board&nbsp;=&nbsp;['o',&nbsp;'o',&nbsp;'o',&nbsp;'o',&nbsp;'o',&nbsp;'o',&nbsp;'o',&nbsp;'o',&nbsp;'e']<br>
+&gt;&gt;&gt;&nbsp;empty_list&nbsp;=&nbsp;<a href="#-gather_empty_cells">gather_empty_cells</a>(board)<br>
+&gt;&gt;&gt;&nbsp;len(empty_list)&nbsp;==&nbsp;1<br>
+True<br>
+&gt;&gt;&gt;&nbsp;empty_list[0]&nbsp;==&nbsp;8<br>
+True</span></dd></dl>
+ <dl><dt><a name="-init_board"><strong>init_board</strong></a>()</dt><dd><span class="code">Return&nbsp;the&nbsp;empty&nbsp;board.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list:&nbsp;the&nbsp;empty&nbsp;board&nbsp;with&nbsp;9&nbsp;items.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;board&nbsp;=&nbsp;<a href="#-init_board">init_board</a>()<br>
+&gt;&gt;&gt;&nbsp;print(board)<br>
+['e',&nbsp;'e',&nbsp;'e',&nbsp;'e',&nbsp;'e',&nbsp;'e',&nbsp;'e',&nbsp;'e',&nbsp;'e']</span></dd></dl>
+ <dl><dt><a name="-point_random"><strong>point_random</strong></a>(board, player)</dt><dd><span class="code">Play&nbsp;one&nbsp;step&nbsp;randomly.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;board&nbsp;(list):&nbsp;the&nbsp;list&nbsp;with&nbsp;9&nbsp;items.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;player&nbsp;(str):&nbsp;'o'&nbsp;for&nbsp;circle&nbsp;player,&nbsp;'x'&nbsp;for&nbsp;cross&nbsp;player<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;point&nbsp;(int):&nbsp;the&nbsp;pointed&nbsp;index&nbsp;on&nbsp;the&nbsp;board<br>
+&nbsp;<br>
+Note:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;function&nbsp;DOESN'T&nbsp;check&nbsp;the&nbsp;validity&nbsp;of&nbsp;turn.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;You&nbsp;can&nbsp;play&nbsp;oneside-game.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;board&nbsp;=&nbsp;<a href="#-init_board">init_board</a>()<br>
+&gt;&gt;&gt;&nbsp;index&nbsp;=&nbsp;<a href="#-point_random">point_random</a>(board,&nbsp;'o')<br>
+&gt;&gt;&gt;&nbsp;board[index]&nbsp;==&nbsp;'o'<br>
+True</span></dd></dl>
+ <dl><dt><a name="-print_board"><strong>print_board</strong></a>(board)</dt><dd><span class="code">Print&nbsp;the&nbsp;board&nbsp;with&nbsp;3x3.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;board&nbsp;(list):&nbsp;the&nbsp;list&nbsp;with&nbsp;9&nbsp;items.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None&nbsp;(only&nbsp;print&nbsp;the&nbsp;board&nbsp;to&nbsp;sys.stdout&nbsp;(standard&nbsp;output)<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;board&nbsp;=&nbsp;<a href="#-init_board">init_board</a>()<br>
+&gt;&gt;&gt;&nbsp;<a href="#-print_board">print_board</a>(board)<br>
+eee<br>
+eee<br>
+eee<br>
+---</span></dd></dl>
+ <dl><dt><a name="-test_play"><strong>test_play</strong></a>()</dt></dl>
+</td></tr></table>
+</body></html>
