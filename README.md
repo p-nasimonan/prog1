@@ -83,3 +83,13 @@ python -m doctest 〇〇.py -v
 ## report6 コード読解
 <a href = "https://ie.u-ryukyu.ac.jp/~tnal/2024/prog1/static/report/report6_reading_debug.html">リンク</a><br>
 <p>アドバイス:コメントばっかりだけど、とりあえず上のリンクに従えば終わるはず！</p>
+
+## report7 原始的なインデキシングによる検索エンジンの実装
+<a href = "https://ie.u-ryukyu.ac.jp/~tnal/2024/prog1/static/report/report7_search.html">リンク</a><br>
+- 使用して良い外部モジュールに制限があります
+    - argparse
+    - doctest
+    - typing(勝手に使いました型を明記するために)
+アドバイス: 関数を沢山作って処理を分割して考えましょう
+---
+今回は本気で丁寧にドキュメントを書きました。そのせいで213行あります

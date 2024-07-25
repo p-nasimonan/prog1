@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module report7</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">report7</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/Users/e245719/Documents/GitHub/prog1/7/report7.py">/Users/e245719/Documents/GitHub/prog1/7/report7.py</a></td></tr></table>
+    <p><span class="code">#&nbsp;課題レポート7:&nbsp;原始的なインデキシングによる検索エンジンの実装<br>
+&lt;関数:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;open_file:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;What:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;##&nbsp;ファイルを開く<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;指定されたパスのtxtを開き、{ファイル名:[内容1行目,2行目...]}を返す<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Why:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;##&nbsp;関数make_indexの処理で使うため<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;関数を作ることで、ファイルを開く処理を簡潔に書けそうだと思った。<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;make_index:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;What:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;##&nbsp;indexを作る<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;指定されたパスのtxtから{単語:[含まれていたファイル名]}を返す<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Why:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;##&nbsp;関数search_wordsで含まれる単語を調べる時に使うため<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;{単語:[含まれていたファイル名]}を作ることによって単語をkeyとして含まれるファイルを調べられる<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;is_macth_words:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;What:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;##&nbsp;単語が一致するか<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;単語のリストと単語が一致するかのリストをyieldで返す<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;search_words:&nbsp;単語が一致するファイルを検索する<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;indexと一致するか調べたい単語を入れて、一致するファイルを返す</span></p>
+<p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-is_macth_words"><strong>is_macth_words</strong></a>(words: list, target_word: str) -&gt; Generator</dt><dd><span class="code">単語のリストが単語に合っているか<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;words:&nbsp;[単語,&nbsp;単語]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;target_word:&nbsp;単語<br>
+&nbsp;<br>
+Generator:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;is_macth_words:&nbsp;単語が一致するか<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;words&nbsp;=&nbsp;['cat',&nbsp;'mat',&nbsp;'on']<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;target_word&nbsp;=&nbsp;'mat'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;print([i&nbsp;for&nbsp;i&nbsp;in&nbsp;<a href="#-is_macth_words">is_macth_words</a>(words,&nbsp;target_word)])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[False,&nbsp;True,&nbsp;False]</span></dd></dl>
+ <dl><dt><a name="-make_index"><strong>make_index</strong></a>(FILE_NAMES: list) -&gt; dict[str, list]</dt><dd><span class="code">indexを作る<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;FILE_NAMES:&nbsp;ファイルのパスのリスト<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;words_index:&nbsp;{単語:&nbsp;[単語が含まれているファイル]}<br>
+&nbsp;<br>
+Example:<br>
+&gt;&gt;&gt;&nbsp;filenames&nbsp;=&nbsp;['file1.txt',&nbsp;'file2.txt',&nbsp;'file3.txt']<br>
+&gt;&gt;&gt;&nbsp;print(<a href="#-make_index">make_index</a>(filenames))<br>
+{'cat':&nbsp;['file1.txt',&nbsp;'file3.txt'],&nbsp;'mat':&nbsp;['file1.txt',&nbsp;'file2.txt'],&nbsp;'on':&nbsp;['file1.txt',&nbsp;'file2.txt'],&nbsp;'sat':&nbsp;['file1.txt',&nbsp;'file3.txt'],&nbsp;'the':&nbsp;['file1.txt',&nbsp;'file2.txt',&nbsp;'file3.txt'],&nbsp;'dog':&nbsp;['file2.txt',&nbsp;'file3.txt'],&nbsp;'stood':&nbsp;['file2.txt',&nbsp;'file3.txt'],&nbsp;'a':&nbsp;['file3.txt'],&nbsp;'while':&nbsp;['file3.txt']}</span></dd></dl>
+ <dl><dt><a name="-open_file"><strong>open_file</strong></a>(FILE_NAMES) -&gt; dict[str, list]</dt><dd><span class="code">ファイルを開く<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;FILE_NAMES:&nbsp;ファイルのパスのリスト<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;file_dict:&nbsp;{ファイル名:ファイルの内容}<br>
+&nbsp;<br>
+Example:<br>
+&gt;&gt;&gt;&nbsp;filenames&nbsp;=&nbsp;['file1.txt',&nbsp;'file2.txt',&nbsp;'file3.txt']<br>
+&gt;&gt;&gt;&nbsp;print(<a href="#-open_file">open_file</a>(filenames))<br>
+{'file1.txt':&nbsp;['the&nbsp;cat&nbsp;sat&nbsp;on&nbsp;the&nbsp;mat'],&nbsp;'file2.txt':&nbsp;['the&nbsp;dog&nbsp;stood&nbsp;on&nbsp;the&nbsp;mat'],&nbsp;'file3.txt':&nbsp;['the&nbsp;cat&nbsp;stood&nbsp;while&nbsp;a&nbsp;dog&nbsp;sat']}</span></dd></dl>
+ <dl><dt><a name="-search_words"><strong>search_words</strong></a>(index: dict[str, list], words: list, logical_operators: str = 'and') -&gt; list</dt><dd><span class="code">単語を検索する</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>Generator</strong> = typing.Generator<br>
+<strong>file_dict</strong> = {'file1.txt': ['the cat sat on the mat'], 'file2.txt': ['the dog stood on the mat'], 'file3.txt': ['the cat stood while a dog sat']}<br>
+<strong>filenames</strong> = ['file1.txt', 'file2.txt', 'file3.txt']<br>
+<strong>index</strong> = {'a': ['file3.txt'], 'cat': ['file1.txt', 'file3.txt'], 'dog': ['file2.txt', 'file3.txt'], 'mat': ['file1.txt', 'file2.txt'], 'on': ['file1.txt', 'file2.txt'], 'sat': ['file1.txt', 'file3.txt'], 'stood': ['file2.txt', 'file3.txt'], 'the': ['file1.txt', 'file2.txt', 'file3.txt'], 'while': ['file3.txt']}</td></tr></table>
+</body></html>
