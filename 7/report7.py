@@ -164,27 +164,32 @@ def join_list(list_of_lists: list[list[str]], logical_operator: str) -> list[str
     Return: 
         result: [リスト内の要素、リスト内の要素...]
     
+    Example:
+        >>> join_list([['file1', 'file2'], ['file1', 'file3'], ['file1']], 'and')
+        ['file1']
+        >>> join_list([['file1', 'file2'], ['file2', 'file4'], ['file3']], 'and')
+        []
     """
-    result: list[str] = []
-    count: dict[str, int] = {}  # {element: 出現回数}
-    
-    # 各ファイルの出現回数をカウント
-    for files in list_of_lists:
-        for file in files:
-            count[file] = count.get(file, 0) + 1
-    
-    # orの場合
-    if logical_operator == 'or':
-        result = list(count.keys())
+    result:set[str] = set()
+    set_files:list[set] = list(map(set, list_of_lists))
+    # 空じゃなければ
+    if len(list_of_lists) != 0:
+        result = set_files[0]
 
-    # andの場合
-    elif logical_operator == 'and':
-        for file, num in count.items():
-            if num == len(list_of_lists):
-                result.append(file)
-    
-    return result
+        # orの場合
+        if logical_operator == 'or':
+            for set_file in set_files:
+                result |= set_file
 
+        # andの場合
+        elif logical_operator == 'and':
+            for set_file in set_files:
+                result &= set_file
+        else:
+            raise Exception(f'Error: {logical_operator}is not "and" or "or" ')
+    
+
+    return sorted(list(result))
 
 def search_words(index: dict[str, list[str]], words: list[str], logical_operator: str = 'and') -> list[str] | None:
     """単語を検索する
@@ -194,6 +199,7 @@ def search_words(index: dict[str, list[str]], words: list[str], logical_operator
         logical_operator: orまたはand
     Return:
         result: 検索結果（ファイル名）
+
     """
     file_lists = []
     for word in words:
